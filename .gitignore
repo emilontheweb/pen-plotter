@@ -5,6 +5,9 @@ venv/
 __pycache__/
 *.pyc
 
+# Input images (copyrighted album art — kept local)
+images/
+
 # Generated output (SVG/G-code we'll produce later)
 output/
 *.gcode
