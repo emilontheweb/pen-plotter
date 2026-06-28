@@ -58,5 +58,10 @@ This is a personal portfolio project, shared publicly to showcase the work. It i
 not intended as a template or starter kit, and setup/usage instructions are
 intentionally omitted.
 
+**Sample image.** The repo ships with a generated, copyright-free
+`images/test_pattern.png` so the pipeline can run without any third-party
+artwork. Album covers are copyrighted and are kept local (git-ignored), never
+committed.
+
 **© Emil. All rights reserved.** This code is provided for viewing only. It may
 not be copied, reused, or redistributed without permission.
