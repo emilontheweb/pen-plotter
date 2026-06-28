@@ -8,10 +8,14 @@ OUTPUT_SVG = "output/album.svg"
 OUTPUT_GCODE = "output/album.gcode"
 N_COLORS = 5
 SPACING = 4
+SKIP_LAYERS = [0, 4]
 
-def build_layers(masks, palette, spacing=4):
+def build_layers(masks, palette, spacing=4, skip=None):
+    skip = skip or []
     layers = []
     for i in range(len(masks)):
+        if i in skip:
+            continue
         lines = hatch_mask(masks[i], spacing)
         color = tuple(int(c) for c in palette[i])
         layers.append({"color": color, "lines": lines})
@@ -22,7 +26,7 @@ if __name__ == "__main__":
     pixels = image_to_pixels(arr)
     palette, labels = quantize_colors(pixels, N_COLORS)
     masks = build_masks(arr, labels, N_COLORS)
-    layers = build_layers(masks, palette, SPACING)
+    layers = build_layers(masks, palette, SPACING, SKIP_LAYERS)
     size = (arr.shape[1], arr.shape[0])
     build_svg(layers, size, OUTPUT_SVG)
     write_gcode(layers, arr.shape[1], OUTPUT_GCODE)
