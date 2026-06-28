@@ -6,7 +6,9 @@ __pycache__/
 *.pyc
 
 # Input images (copyrighted album art — kept local)
-images/
+images/*
+# ...except the generated, copyright-free demo image (safe to commit)
+!images/test_pattern.png
 
 # Generated output (SVG/G-code we'll produce later)
 output/
